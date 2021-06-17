@@ -5,6 +5,8 @@ void printf(char* str);
 
 InterruptManager::GateDescriptor InterruptManager::interruptDescriptorTable[256];
 
+InterruptManager* InterruptManager::ActiveInterruptManager = 0;
+
 void InterruptManager::SetInterruptDescriptorTableEntry(
                 uint8_t interruptNumber,
                 uint16_t codeSegmentSelectorOffset,
@@ -71,12 +73,49 @@ InterruptManager::~InterruptManager()
 
 void InterruptManager::Activate()
 {
+    if (ActiveInterruptManager != 0)
+    {
+        ActiveInterruptManager->Deactivate();
+    }
+    ActiveInterruptManager = this;
+    
     // setting interrupt flag
     asm("sti");
 }
 
+void InterruptManager::Deactivate()
+{
+    if (ActiveInterruptManager == this)
+    {
+        ActiveInterruptManager = 0;
+        asm("cli");
+    }
+}
+
 uint32_t InterruptManager::HandleInterrupt(uint8_t interruptNumber, uint32_t esp)
 {
-    printf(" ------  operation succesful");
+    if (ActiveInterruptManager != 0)
+    {
+        return ActiveInterruptManager->DoHandleInterrupt(interruptNumber, esp);
+    }
+    return esp;
+}
+
+uint32_t InterruptManager::DoHandleInterrupt(uint8_t interruptNumber, uint32_t esp)
+{
+    // print only if it is not timer interrupt
+    if (interruptNumber != 0x20)
+    {
+        printf(" ------  operation succesful");
+    }
+    
+    if (0x20 <= interruptNumber && interruptNumber <= 0x30)
+    {
+        picMasterCommand.Write(0x20);
+        if (0x28 <= interruptNumber)
+        {
+            picSlaveCommand.Write(0x28);
+        }
+    }
     return esp;
 }
