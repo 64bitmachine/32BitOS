@@ -1,0 +1,103 @@
+\hypertarget{classInterruptManager}{}\doxysection{Interrupt\+Manager Class Reference}
+\label{classInterruptManager}\index{InterruptManager@{InterruptManager}}
+
+
+Collaboration diagram for Interrupt\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInterruptManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structInterruptManager_1_1GateDescriptor}{Gate\+Descriptor}}
+\item 
+struct \mbox{\hyperlink{structInterruptManager_1_1InterruptDescriptorTablePointer}{Interrupt\+Descriptor\+Table\+Pointer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInterruptManager_a8d0e66acad281c20aa3925d2658c6862}\label{classInterruptManager_a8d0e66acad281c20aa3925d2658c6862}} 
+{\bfseries Interrupt\+Manager} (\mbox{\hyperlink{classGlobalDescriptorTable}{Global\+Descriptor\+Table}} $\ast$gdt)
+\item 
+\mbox{\Hypertarget{classInterruptManager_aab4c2aaf46086c304a104ed7e8a2dc95}\label{classInterruptManager_aab4c2aaf46086c304a104ed7e8a2dc95}} 
+void {\bfseries Activate} ()
+\item 
+\mbox{\Hypertarget{classInterruptManager_a9fc433a6e6f41112b72219460f3b9248}\label{classInterruptManager_a9fc433a6e6f41112b72219460f3b9248}} 
+void {\bfseries Deactivate} ()
+\item 
+\mbox{\Hypertarget{classInterruptManager_a86a3b4431ea7efbeb9542c17f48eaea2}\label{classInterruptManager_a86a3b4431ea7efbeb9542c17f48eaea2}} 
+uint32\+\_\+t {\bfseries Do\+Handle\+Interrupt} (uint8\+\_\+t interrupt\+Number, uint32\+\_\+t esp)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInterruptManager_a0c615068cb1154f6fce6c6f40a4c8a9d}\label{classInterruptManager_a0c615068cb1154f6fce6c6f40a4c8a9d}} 
+static uint32\+\_\+t {\bfseries Handle\+Interrupt} (uint8\+\_\+t interrupt\+Number, uint32\+\_\+t esp)
+\item 
+\mbox{\Hypertarget{classInterruptManager_a9147ae1e082a3138bd50809b5e61903d}\label{classInterruptManager_a9147ae1e082a3138bd50809b5e61903d}} 
+static void {\bfseries Ignore\+Interrupt\+Request} ()
+\item 
+\mbox{\Hypertarget{classInterruptManager_a36a86dcfd42a941d616530d3b05a91c2}\label{classInterruptManager_a36a86dcfd42a941d616530d3b05a91c2}} 
+static void {\bfseries Handle\+Interrupt\+Request0x00} ()
+\item 
+\mbox{\Hypertarget{classInterruptManager_a87c6272892209de3749d87fc97ec5b78}\label{classInterruptManager_a87c6272892209de3749d87fc97ec5b78}} 
+static void {\bfseries Handle\+Interrupt\+Request0x01} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInterruptManager_a0d1838c9935a68ec2a5b42e2769462ec}\label{classInterruptManager_a0d1838c9935a68ec2a5b42e2769462ec}} 
+struct \mbox{\hyperlink{structInterruptManager_1_1GateDescriptor}{Interrupt\+Manager\+::\+Gate\+Descriptor}} {\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((packed))
+\item 
+\mbox{\Hypertarget{classInterruptManager_aa34ffa81b678886314cea968ef54dd42}\label{classInterruptManager_aa34ffa81b678886314cea968ef54dd42}} 
+struct \mbox{\hyperlink{structInterruptManager_1_1InterruptDescriptorTablePointer}{Interrupt\+Manager\+::\+Interrupt\+Descriptor\+Table\+Pointer}} {\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((packed))
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInterruptManager_ab016e24e27cd4246952e541ca1c73cda}\label{classInterruptManager_ab016e24e27cd4246952e541ca1c73cda}} 
+static void {\bfseries Set\+Interrupt\+Descriptor\+Table\+Entry} (uint8\+\_\+t interrupt\+Number, uint16\+\_\+t code\+Segment\+Selector\+Offset, void($\ast$handler)(), uint8\+\_\+t Descriptor\+Privilege\+Level, uint8\+\_\+t Descriptor\+Type)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInterruptManager_ad09808040b6f01260d5d9756f397d706}\label{classInterruptManager_ad09808040b6f01260d5d9756f397d706}} 
+\mbox{\hyperlink{classInterruptHandler}{Interrupt\+Handler}} $\ast$ {\bfseries handlers} \mbox{[}256\mbox{]}
+\item 
+\mbox{\Hypertarget{classInterruptManager_af9c77ff57e676fc39052e236f9db2cf9}\label{classInterruptManager_af9c77ff57e676fc39052e236f9db2cf9}} 
+\mbox{\hyperlink{classPort8BitSlow}{Port8\+Bit\+Slow}} {\bfseries pic\+Master\+Command}
+\item 
+\mbox{\Hypertarget{classInterruptManager_a89b97f27237779fb165d82988d85465a}\label{classInterruptManager_a89b97f27237779fb165d82988d85465a}} 
+\mbox{\hyperlink{classPort8BitSlow}{Port8\+Bit\+Slow}} {\bfseries pic\+Master\+Data}
+\item 
+\mbox{\Hypertarget{classInterruptManager_abeacc2cde573d48e1a1d69529588748b}\label{classInterruptManager_abeacc2cde573d48e1a1d69529588748b}} 
+\mbox{\hyperlink{classPort8BitSlow}{Port8\+Bit\+Slow}} {\bfseries pic\+Slave\+Command}
+\item 
+\mbox{\Hypertarget{classInterruptManager_a4c73820e65ebf60fa4bdd38ac747b0bd}\label{classInterruptManager_a4c73820e65ebf60fa4bdd38ac747b0bd}} 
+\mbox{\hyperlink{classPort8BitSlow}{Port8\+Bit\+Slow}} {\bfseries pic\+Slave\+Data}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInterruptManager_afc4706d8c373a9cda851b404ec4b18ac}\label{classInterruptManager_afc4706d8c373a9cda851b404ec4b18ac}} 
+static \mbox{\hyperlink{classInterruptManager}{Interrupt\+Manager}} $\ast$ {\bfseries Active\+Interrupt\+Manager} = 0
+\item 
+\mbox{\Hypertarget{classInterruptManager_ae6dbe55e15adcdaa2bdd91d231a2ee57}\label{classInterruptManager_ae6dbe55e15adcdaa2bdd91d231a2ee57}} 
+static \mbox{\hyperlink{structInterruptManager_1_1GateDescriptor}{Gate\+Descriptor}} {\bfseries interrupt\+Descriptor\+Table} \mbox{[}256\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInterruptManager_a9aef4ea3434f8ddeaf9c32a63e6faf05}\label{classInterruptManager_a9aef4ea3434f8ddeaf9c32a63e6faf05}} 
+class {\bfseries Interrupt\+Handler}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+interrupts.\+h\item 
+interrupts.\+cpp\end{DoxyCompactItemize}

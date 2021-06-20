@@ -1,9 +1,9 @@
 
-GPPPARAMS	= -m32 -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-rtti -fno-exceptions -fno-leading-underscore
+GPPPARAMS	= -m32 -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-rtti -fno-exceptions -fno-leading-underscore -Wno-write-strings
 ASPARAMS	= --32
 LDPARAMS	= -melf_i386
 
-objects = loader.o gdt.o port.o interruptstubs.o interrupts.o kernel.o
+objects = loader.o gdt.o port.o interruptstubs.o interrupts.o keyboard.o kernel.o
 
 %.o: %.cpp
 	g++ $(GPPPARAMS) -o $@ -c $<
@@ -33,9 +33,11 @@ install: 32bitkernel.bin
 	rm -rf iso
 
 run: 32bitkernel.iso
+	rm -rf docs
+	doxygen config/doc
 	(killall VirtualBoxVM && sleep 1) || true
 	VirtualBoxVM --startvm "32 Bit OS" &
 
 .PHONY: clean
 clean:
-	rm -f $(objects) 32bitkernel.bin 32bitkernel.iso
+	rm -rf $(objects) 32bitkernel.bin 32bitkernel.iso
