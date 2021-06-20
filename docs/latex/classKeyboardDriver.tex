@@ -1,0 +1,50 @@
+\hypertarget{classKeyboardDriver}{}\doxysection{Keyboard\+Driver Class Reference}
+\label{classKeyboardDriver}\index{KeyboardDriver@{KeyboardDriver}}
+
+
+Inheritance diagram for Keyboard\+Driver\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=177pt]{classKeyboardDriver__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Keyboard\+Driver\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classKeyboardDriver__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classKeyboardDriver_a84b9833426eec091a32648fc98f9b9cd}{Keyboard\+Driver}} (\mbox{\hyperlink{classInterruptManager}{Interrupt\+Manager}} $\ast$manager)
+\item 
+\mbox{\Hypertarget{classKeyboardDriver_aa44798a4785e33c4114390e3504989f7}\label{classKeyboardDriver_aa44798a4785e33c4114390e3504989f7}} 
+virtual uint32\+\_\+t {\bfseries handle\+Interrupt} (uint32\+\_\+t esp)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classKeyboardDriver_a84b9833426eec091a32648fc98f9b9cd}\label{classKeyboardDriver_a84b9833426eec091a32648fc98f9b9cd}} 
+\index{KeyboardDriver@{KeyboardDriver}!KeyboardDriver@{KeyboardDriver}}
+\index{KeyboardDriver@{KeyboardDriver}!KeyboardDriver@{KeyboardDriver}}
+\doxysubsubsection{\texorpdfstring{KeyboardDriver()}{KeyboardDriver()}}
+{\footnotesize\ttfamily Keyboard\+Driver\+::\+Keyboard\+Driver (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classInterruptManager}{Interrupt\+Manager}} $\ast$}]{manager }\end{DoxyParamCaption})}
+
+Keyboard Encoder \+:
+
+port \mbox{[}0x60\mbox{]} \+: Read \+: Read Input Buffer port \mbox{[}0x60\mbox{]} \+: Write \+: Send Command Onboard Keyboard Controller \+:
+
+port \mbox{[}0x64\mbox{]} \+: Read \+: Status Register port \mbox{[}0x64\mbox{]} \+: Write \+: Send Command
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+keyboard.\+h\item 
+keyboard.\+cpp\end{DoxyCompactItemize}
