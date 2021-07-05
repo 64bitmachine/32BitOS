@@ -1,4 +1,8 @@
-#include "keyboard.h"
+#include <drivers/keyboard.h>
+
+using namespace thirty2bitOS::common;
+using namespace thirty2bitOS::drivers;
+using namespace thirty2bitOS::hardwarecommunication;
 
 KeyboardDriver::KeyboardDriver(InterruptManager* manager)
 : InterruptHandler(manager, 0x21),

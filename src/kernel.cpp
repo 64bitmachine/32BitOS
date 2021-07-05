@@ -1,7 +1,12 @@
-#include "types.h"
-#include "gdt.h"
-#include "interrupts.h"
-#include "keyboard.h"
+#include <common/types.h>
+#include <gdt.h>
+#include <hardwarecommunication/interrupts.h>
+#include <drivers/keyboard.h>
+
+using namespace thirty2bitOS;
+using namespace thirty2bitOS::common;
+using namespace thirty2bitOS::drivers;
+using namespace thirty2bitOS::hardwarecommunication;
 
 void printf(char* str)
 {
