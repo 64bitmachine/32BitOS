@@ -1,5 +1,8 @@
 
-#include "port.h"
+#include <hardwarecommunication/port.h>
+
+using namespace thirty2bitOS::common;
+using namespace thirty2bitOS::hardwarecommunication;
 
 Port::Port(uint16_t portnumber)
 {

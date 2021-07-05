@@ -1,5 +1,9 @@
 
-#include "interrupts.h"
+#include <hardwarecommunication/interrupts.h>
+
+using namespace thirty2bitOS;
+using namespace thirty2bitOS::common;
+using namespace thirty2bitOS::hardwarecommunication;
 
 void printf(char* str);
 
